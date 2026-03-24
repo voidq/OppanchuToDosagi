@@ -125,3 +125,115 @@ body {
     cursor: pointer;
     font-size: 12px;
 }
+
+/* ... 기존 CSS 코드 ... */
+
+/* 팝업 오버레이 (배경 어둡게) */
+#complete-popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* 반투명 검은 배경 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* 가장 위에 띄우기 */
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+/* 팝업창 본체 */
+#complete-popup {
+    background-color: #fff;
+    border: 5px solid #ff80ab;
+    border-radius: 20px;
+    padding: 30px;
+    width: 320px;
+    text-align: center;
+    position: relative;
+    /* 프린세스 메이커 풍 테두리 효과 */
+    box-shadow: 0 0 0 5px #fff inset, 0 10px 20px rgba(0,0,0,0.3);
+    
+    /* 애니메이션 초기 상태: 작고 투명하게 */
+    transform: scale(0.5);
+    opacity: 0;
+}
+
+/* 팝업이 표시될 때 (클래스 추가 시) */
+#complete-popup-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+#complete-popup-overlay.show #complete-popup {
+    /* 애니메이션 결과 상태: 제 크기로 팡! */
+    transform: scale(1);
+    opacity: 1;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+    /* cubic-bezier는 통통 튀는 느낌을 주는 타이밍 함수입니다. */
+}
+
+/* 팝업 내부 콘텐츠 */
+.popup-content #popup-rabbit {
+    width: 120px;
+    margin-bottom: 20px;
+    image-rendering: pixelated;
+}
+
+.popup-content h2 {
+    color: #ff4081;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.popup-content p {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 25px;
+}
+
+#close-popup-btn {
+    background-color: #ff80ab;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 #f06292; /* 입체감 */
+    transition: all 0.1s;
+}
+
+#close-popup-btn:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #f06292;
+}
+
+/* 유틸리티 클래스 */
+.hidden {
+    display: none !important;
+}
+
+/* --- (선택사항) 스파클 효과 --- */
+.sparkle {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: #fff176;
+    border-radius: 50%;
+    opacity: 0;
+    animation: sparkleAnim 1s ease-in-out infinite;
+}
+
+.sparkle.s1 { top: 20px; left: 20px; animation-delay: 0.1s; }
+.sparkle.s2 { top: 50px; right: 30px; animation-delay: 0.3s; width: 15px; height: 15px;}
+.sparkle.s3 { bottom: 30px; left: 50%; animation-delay: 0.5s; width: 25px; height: 25px;}
+
+@keyframes sparkleAnim {
+    0% { transform: scale(0); opacity: 0; }
+    50% { transform: scale(1.2); opacity: 1; }
+    100% { transform: scale(0); opacity: 0; }
+}
