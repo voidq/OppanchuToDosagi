@@ -1,0 +1,127 @@
+/* 기본 스타일 초기화 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'MaplestoryOTFBold', sans-serif; /* 메이플스토리 폰트 추천! 없으면 기본 돋움체 */
+    background-color: #fce4ec; /* 연분홍 배경색 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#game-container {
+    width: 400px;
+    height: 600px;
+    background-color: #fff;
+    border: 5px solid #ff80ab; /* 진분홍 테두리 */
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 캐릭터 영역 */
+#rabbit-container {
+    margin-bottom: 10px;
+}
+
+#rabbit-image {
+    width: 150px;
+    image-rendering: pixelated; /* 도트 이미지를 선명하게 보여주는 옵션 */
+}
+
+/* 대화창 */
+#dialogue-box {
+    width: 100%;
+    background-color: #e0f2f1; /* 연하늘 배경색 */
+    border: 3px solid #009688; /* 청록 테두리 */
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #00695c;
+    line-height: 1.6;
+}
+
+/* 입력 영역 */
+#input-container {
+    display: flex;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#todo-input {
+    flex-grow: 1;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+#todo-input:focus {
+    outline: none;
+    border-color: #ff80ab;
+}
+
+#add-btn {
+    background-color: #ff80ab;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-left: 10px;
+}
+
+#add-btn:hover {
+    background-color: #ff4081;
+}
+
+/* 할 일 목록 영역 */
+#todo-list-container {
+    width: 100%;
+    flex-grow: 1;
+    overflow-y: auto; /* 목록이 많아지면 스크롤 생성 */
+}
+
+#todo-list {
+    list-style-type: none;
+}
+
+#todo-list li {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+}
+
+#todo-list li.checked {
+    color: #888;
+    text-decoration: line-through; /* 완료된 항목에 줄 긋기 */
+}
+
+#todo-list li span {
+    cursor: pointer;
+}
+
+.delete-btn {
+    background-color: transparent;
+    color: #ff1744;
+    border: none;
+    cursor: pointer;
+    font-size: 12px;
+}
